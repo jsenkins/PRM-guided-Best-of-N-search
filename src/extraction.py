@@ -42,4 +42,36 @@ def extract_answer(completion_text: str) -> int | None:
       - Empty string or None-like garbage -> None, and never raise
     """
     # TODO: Implement robust regex answer extraction
-    raise NotImplementedError("Implement extract_answer in src/extraction.py")
+        
+    
+    try:
+        
+        if not completion_text or not isinstance(completion_text, str):
+            return None
+
+        delimiters = list(re.finditer(r"final[ \t]*answer", completion_text, flags=re.IGNORECASE))
+        if not delimiters:
+            return None
+        line = completion_text[delimiters[-1].end():].split("\n", 1)[0]
+
+        #used claude to help with the following part 
+
+        pattern = (
+            r"(?:\s*is\b)?[\s:=*]*"
+            r"\$?\s*(?P<sign>[-\u2212])?\s*\$?\s*"
+            r"(?P<int>\d{1,3}(?:,\d{3})+|\d+)"
+            r"(?:\.(?P<frac>\d+))?"
+            )
+        m = re.match(pattern, line, flags=re.IGNORECASE)
+        if not m:
+            return None
+        if m.group("frac") and m.group("frac").strip("0"):
+            return None
+
+        val = int(m.group("int").replace(",", ""))
+        return -val if m.group("sign") else val
+    
+    except Exception:
+        return None
+
+      

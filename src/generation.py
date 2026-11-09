@@ -2,13 +2,17 @@
 src/generation.py - Prompt formatting and baseline generation routines.
 """
 from typing import Any, Callable
-
+from collections import Counter
+from .extraction import extract_answer, parse_steps
+import time
+from .utils import (make_hf_generate_fn, GREEDY_GEN_KWARGS, SAMPLING_GEN_KWARGS)
 GenerateFn = Callable[[str, int, dict], list[dict]]
 # generate_fn(raw_prompt, num_samples, gen_kwargs) -> list of {"text": str, "num_tokens": int}
 # gen_kwargs carries do_sample/temperature/top_p/top_k/repetition_penalty/max_new_tokens
 
 
 def format_step_prompt(question: str) -> str:
+    
     """
     Formats the raw problem question into a prompt that instructs the 
     model to emit numbered steps ('Step 1: ...') and 'Final Answer: <int>'.
@@ -16,8 +20,32 @@ def format_step_prompt(question: str) -> str:
     Returns a raw instruction string (no chat template applied).
     """
     # TODO: Build zero-shot prompt enforcing step-structured reasoning
-    raise NotImplementedError("Implement format_step_prompt in src/generation.py")
+    prompt=(
+       
+        f"Question: {question} \n\n"
+        "Give me the solution to the math question. Show all the numbered steps with their reasoning explicitly and provide a final answer as an integer.\n"
+        
+        "Follow the format below \n"
+       
+        "Step 1: Extract and state the starting point to understand the problem.\n"
+        "Step 2: Write the first equation and state your reasoning.\n"
+        "Step 3: Continue with the next step and state the current values\n"
+       
+       
+        " (keep going with the chronological numbered steps until the final solution and reasoning is reached. )\n"
+        "- Do not use markdown, headings, bold text, LaTeX, or \\boxed{}.\n"
+    
+       "(no units, no dollar signs in the last line).\n"
+        "Final Answer: <int>"
+   
 
+
+       )
+    
+    return prompt
+
+    
+    
 
 def compute_majority_vote(answers: list[int | None]) -> int | None:
     """
@@ -26,8 +54,15 @@ def compute_majority_vote(answers: list[int | None]) -> int | None:
     that appeared earliest in the list.
     """
     # TODO: Implement deterministic majority voting
-    raise NotImplementedError("Implement compute_majority_vote in src/generation.py")
-
+    votes = [a for a in answers if a is not None]
+    if not votes:
+        return None
+    counts = Counter(votes)
+    highest = max(counts.values())
+    for a in votes:                  
+        if counts[a] == highest:
+            return a
+    
 
 def run_greedy(
     model: Any = None, 
@@ -44,7 +79,25 @@ def run_greedy(
       prompt, completion, steps, answer, generation_calls, generated_tokens, time_seconds
     """
     # TODO: Implement greedy baseline decoding
-    raise NotImplementedError("Implement run_greedy in src/generation.py")
+    if generate_fn is None:
+        generate_fn = make_hf_generate_fn(model, tokenizer)
+    gen_kwargs = dict(GREEDY_GEN_KWARGS)
+    prompt = format_step_prompt(question)
+    start = time.perf_counter()
+    out = generate_fn(prompt, 1, gen_kwargs)[0]
+    elapsed = time.perf_counter() - start
+    completion = out.get("text", "")
+    return {
+        "prompt": prompt,
+        "completion": completion,
+        "steps": parse_steps(completion),
+        "answer": extract_answer(completion),
+        "generation_calls": 1,
+        "generated_tokens": int(out.get("num_tokens", 0)),
+        "time_seconds": elapsed,
+    }
+
+
 
 
 def run_self_consistency(
@@ -63,4 +116,42 @@ def run_self_consistency(
       generation_calls, generated_tokens, time_seconds
     """
     # TODO: Implement Self-Consistency sampling and majority voting
-    raise NotImplementedError("Implement run_self_consistency in src/generation.py")
+    if n < 1:
+        raise ValueError("n must be >= 1")
+    if generate_fn is None:
+        generate_fn = make_hf_generate_fn(model, tokenizer)
+
+    prompt = format_step_prompt(question)
+    gen_kwargs = dict(SAMPLING_GEN_KWARGS)
+    gen_kwargs["temperature"] = temperature
+
+    start = time.perf_counter()
+    outputs = generate_fn(prompt, n, gen_kwargs)
+    elapsed = time.perf_counter() - start
+
+    candidates = []
+    answers = []
+    generated_tokens = 0
+
+    for output in outputs:
+        completion = output.get("text", "")
+        steps = parse_steps(completion)
+        answer = extract_answer(completion)
+        num_tokens = int(output.get("num_tokens", 0))
+
+        candidates.append({
+            "completion": completion,
+            "steps": steps,
+            "answer": answer,
+            "num_tokens": num_tokens,
+        })
+        answers.append(answer)
+        generated_tokens += num_tokens
+
+    return {
+        "candidates": candidates,
+        "answer": compute_majority_vote(answers),   
+        "generation_calls": len(candidates),
+        "generated_tokens": generated_tokens,
+        "time_seconds": elapsed,
+    }
