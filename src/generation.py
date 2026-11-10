@@ -21,22 +21,34 @@ def format_step_prompt(question: str) -> str:
     """
     # TODO: Build zero-shot prompt enforcing step-structured reasoning
     prompt=(
-       
-        f"Question: {question} \n\n"
-        "Give me the solution to the math question. Show all the numbered steps with their reasoning explicitly and provide a final answer as an integer.\n"
         
-        "Follow the format below \n"
+        f"Question: {question}\n\n"
        
-        "Step 1: Extract and state the starting point to understand the problem.\n"
-        "Step 2: Write the first equation and state your reasoning.\n"
+        "Give me the solution to the math question. Show all the numbered steps short explanation and provide a final answer as an integer only.\n"
+       
+        "Follow the Format below \n"
+        
+       
+        "Step 1: one short plain sentence with one calculation written like 1 * 5 = 5.\n"
+        "Step 2: next short sentence with one calculation.\n"
         "Step 3: Continue with the next step and state the current values\n"
        
-       
-        " (keep going with the chronological numbered steps until the final solution and reasoning is reached. )\n"
-        "- Do not use markdown, headings, bold text, LaTeX, or \\boxed{}.\n"
+        "(continue, one step per line)\n"
+        "Final Answer: <integer>\n\n"
+
+        "Do not deviate from the following rules:"
+
+         "Use plain text only. No markdown, no LaTeX, no \\[ \\], no \\boxed{}, no brackets.\n"
     
-       "(no units, no dollar signs in the last line).\n"
-        "Final Answer: <int>"
+        "no units in the final answer.\n"
+        "Every line before the last starts with 'Step k:'. No concluding sentence.\n"
+        
+        
+        "write nothing after the last line that is the Final Answer line\n"
+        "The last line must be only be 'Final Answer: number' replace the number placeholder with the actual answer value only"
+        
+
+        
    
 
 
