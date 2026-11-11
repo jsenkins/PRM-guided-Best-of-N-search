@@ -1,336 +1,84 @@
 [
   {
-    "id": "gsm8k_test_03",
-    "cand": 0,
+    "id": "gsm8k_test_47",
+    "cand": 1,
     "step_idx": 3,
     "judge": "INVALID",
-    "rationale": "The current step incorrectly identifies the original cost as $130,000 instead of the initial purchase price of $80,000 plus the repairs of $50,000, which totals $130,000.",
-    "step": "To find the profit, subtract the original cost from the new value: $195,000 - $130,000 = $65,000.",
+    "rationale": "The current step uses an incorrect formula.",
+    "step": "Correct calculation:\n(80 - 220) - 23 = -163\n\nThis still doesn't make sense because we can't have a negative number of post-it notes. Let's try a different approach.",
     "preceding": [
-      "Josh initially buys the house for $80,000.",
-      "He then adds $50,000 in repairs, increasing the total cost to $80,000 + $50,000 = $130,000.",
-      "The house's value increased by 150%, meaning the new value is 130,000 + 130,000 * 1.5 = $195,000."
+      "Candice initially had 80 post-it notes.",
+      "She placed 220 post-it notes on the coffee cups.",
+      "She had 23 post-it notes remaining overall. \n(80 - 220) + 23 = -97\nThis calculation seems incorrect because it results in a negative number of notes, which is not possible. Let's re-evaluate the problem."
     ],
-    "path_correct": false,
+    "path_correct": true,
     "audit_id": 0
   },
   {
-    "id": "gsm8k_test_38",
+    "id": "gsm8k_test_30",
     "cand": 3,
-    "step_idx": 4,
-    "judge": "INVALID",
-    "rationale": "The current step assumes that John originally had $190, which is incorrect based on the information provided.",
-    "step": "Therefore, he originally had 195 - 5 = $190.",
-    "preceding": [
-      "John sells 13 lego sets at $15 each, so he earns 13 * 15 = $195.",
-      "He buys 8 video games at $20 each, so he spends 8 * 20 = $160.",
-      "After buying the video games, he has 195 - 160 = $35 left.",
-      "He has $5 left after buying video games."
-    ],
-    "path_correct": false,
+    "step_idx": 0,
+    "judge": "VALID",
+    "rationale": "The current step introduces a variable \\( B \\) to represent the cost of the boots, which is a logical and common approach to setting up an algebraic problem.",
+    "step": "Let's denote the cost of the boots as B.",
+    "preceding": [],
+    "path_correct": true,
     "audit_id": 1
   },
   {
-    "id": "gsm8k_test_06",
-    "cand": 2,
-    "step_idx": 1,
-    "judge": "INVALID",
-    "rationale": "The current step assumes that Kylar buys 15 more glasses after already buying one glass, which was correctly calculated in Step 1.",
-    "step": "Kylar buys 15 more glasses at 60% of the original price. Let's calculate the cost of each of these glasses: 15 * $5 * 0.6 = $45.",
+    "id": "gsm8k_test_40",
+    "cand": 3,
+    "step_idx": 2,
+    "judge": "VALID",
+    "rationale": "The arithmetic in the current step is correct (1/3 * 6 = 2), and it logically follows from the problem statement that Dana spends one-third of the total time running.",
+    "step": "If she spends one-third of the time running, then she spends 1/3 * 6 = 2 hours running.",
     "preceding": [
-      "Kylar buys 16 glasses. Let's calculate the cost of the first glass: 1 * $5 = $5."
+      "Dana can skip at 3 miles per hour.",
+      "If she spends two-thirds of the time walking, then she spends 2/3 * 6 = 4 hours walking."
     ],
     "path_correct": false,
     "audit_id": 2
   },
   {
-    "id": "gsm8k_test_29",
-    "cand": 1,
-    "step_idx": 1,
+    "id": "gsm8k_test_50",
+    "cand": 4,
+    "step_idx": 2,
     "judge": "VALID",
-    "rationale": "The first stop distance is explicitly stated as 20 miles in the problem statement, making this calculation directly valid based on the given information.",
-    "step": "Calculate the distance of the first stop.\n   - First stop distance = 20 miles",
+    "rationale": "The current step logically follows from the previous steps.",
+    "step": "Calculate the number of unoccupied units.\n15 - 11.25 = 3.75",
     "preceding": [
-      "Henry made two stops during his 60-mile bike trip.\n   - Total miles = 60 miles\n   - First stop = 20 miles\n   - Second stop = 15 miles before the end of the trip"
+      "Calculate the total number of units in the building.\n1 * 15 = 15",
+      "Calculate the number of units occupied.\n3/4 * 15 = 11.25"
     ],
     "path_correct": false,
     "audit_id": 3
   },
   {
-    "id": "gsm8k_test_18",
-    "cand": 1,
-    "step_idx": 5,
+    "id": "gsm8k_test_17",
+    "cand": 2,
+    "step_idx": 2,
     "judge": "INVALID",
-    "rationale": "The current step assumes that the number of weeks Jill works as a cheerleading coach in a year is the same as the number of weeks she works as a teacher, which is 50 weeks.",
-    "step": "Now, we need to calculate the total number of weeks she works as a cheerleading coach in a year, which is also 50 weeks.",
+    "rationale": "The calculation assumes that the second train also traveled 80 miles west and 150 miles north, which is not stated in the problem.",
+    "step": "The second train covers a total of 80 + 150 = 230 miles.",
     "preceding": [
-      "Jill works 35 hours a week as a teacher and earns $20 per hour.",
-      "35 hours * $20 = $700 per week",
-      "Now, we need to calculate the total number of weeks she works as a teacher in a year, which is 50 weeks.",
-      "Jill works 15 hours a week as a cheerleading coach and earns $30 per hour.",
-      "15 hours * $30 = $450 per week"
+      "The first train travels 80 miles west on the first day and then 150 miles north on the second day. The second train travels 80 miles west on the first day and then 150 miles north on the second day.",
+      "The first train covers a total of 80 + 150 = 230 miles."
     ],
     "path_correct": true,
     "audit_id": 4
   },
   {
-    "id": "gsm8k_test_20",
-    "cand": 3,
-    "step_idx": 1,
-    "judge": "VALID",
-    "rationale": "The calculation correctly subtracts the distance Marissa has already walked (4 miles) from the total distance of the trail (12 miles), resulting in the remaining distance to the finish line (8 miles).",
-    "step": "Calculate the remaining distance to the finish line.\n12 - 4 = 8 miles",
-    "preceding": [
-      "Calculate the distance Marissa has already walked.\n1 * 4 = 4 miles"
-    ],
-    "path_correct": false,
-    "audit_id": 5
-  },
-  {
-    "id": "gsm8k_test_46",
-    "cand": 4,
-    "step_idx": 0,
-    "judge": "VALID",
-    "rationale": "The current step is stating a fact that aligns with the problem statement, which mentions \"Last week, she wrote 5 articles on Monday.\" This step does not depend on any previous steps and is directly provided in the problem description.",
-    "step": "Meredith wrote 5 articles on Monday.",
-    "preceding": [],
-    "path_correct": false,
-    "audit_id": 6
-  },
-  {
-    "id": "gsm8k_test_04",
+    "id": "gsm8k_test_02",
     "cand": 0,
-    "step_idx": 3,
-    "judge": "VALID",
-    "rationale": "The statement \"Each sprint is 60 meters\" is a given fact in the problem and does not depend on the previous steps for its validity.",
-    "step": "Each sprint is 60 meters.",
-    "preceding": [
-      "James runs 3 sprints each time he runs.",
-      "He runs 3 times a week.",
-      "Total sprints per week = 3 sprints/visit * 3 visits/week = 9 sprints/week."
-    ],
-    "path_correct": true,
-    "audit_id": 7
-  },
-  {
-    "id": "gsm8k_test_10",
-    "cand": 4,
-    "step_idx": 11,
-    "judge": "INVALID",
-    "rationale": "The calculation for regular pay should be based on the regular rate of $10 per hour for the first 40 hours, but the current step incorrectly uses $10 for the regular pay without specifying the hours.",
-    "step": "Total earnings = Regular pay + Overtime pay = ($10 * 40) + $60 = $460.",
-    "preceding": [
-      "Eliza's regular rate is $10 per hour for the first 40 hours.",
-      "Eliza worked 45 hours in total.",
-      "Eliza's overtime rate is 1.2 times her regular rate.\n(Step 4: Calculate the total hours worked.)",
-      "The total hours worked is 45 hours.",
-      "Calculate the regular hours.",
-      "Regular hours = 40 hours.",
-      "Calculate the overtime hours.",
-      "Overtime hours = 45 - 40 = 5 hours.",
-      "Calculate the overtime pay.",
-      "Overtime pay = $10 * 1.2 * 5 = $60.",
-      "Calculate the total earnings."
-    ],
-    "path_correct": true,
-    "audit_id": 8
-  },
-  {
-    "id": "gsm8k_test_34",
-    "cand": 3,
-    "step_idx": 4,
-    "judge": "VALID",
-    "rationale": "The current step correctly simplifies the equation obtained from substituting G in Step 4, which is logically derived from the previous steps.",
-    "step": "Simplify and solve for S: 2S + 30 = 110.",
-    "preceding": [
-      "Let G represent the number of gold coins and S represent the number of silver coins.",
-      "We know that G = S + 30.",
-      "Gretchen has a total of 110 coins, so G + S = 110.",
-      "Substitute G from Step 2 into Step 3: (S + 30) + S = 110."
-    ],
-    "path_correct": true,
-    "audit_id": 9
-  },
-  {
-    "id": "gsm8k_test_20",
-    "cand": 2,
     "step_idx": 1,
     "judge": "VALID",
-    "rationale": "The current step correctly calculates the remaining distance by subtracting the distance already covered from the total distance.",
-    "step": "Determine the remaining distance and time.\nThe total distance of the trail is 12 miles. She has already walked 4 + 2 = 6 miles. Therefore, she has 12 - 6 = 6 miles left to walk. We don't know how long she will spend walking the remaining distance.",
+    "rationale": "The current step correctly calculates half the amount of blue fiber (which is 2 bolts) to be 1 bolt of white fiber.",
+    "step": "Half that much white fiber, so 2 / 2 = 1 bolt of white fiber.",
     "preceding": [
-      "Calculate the total time Marissa has already spent hiking.\nMarissa took 1 hour to walk the first 4 miles, then another hour to walk the next 2 miles. So, she has already spent 1 + 1 = 2 hours hiking."
-    ],
-    "path_correct": false,
-    "audit_id": 10
-  },
-  {
-    "id": "gsm8k_test_13",
-    "cand": 2,
-    "step_idx": 1,
-    "judge": "INVALID",
-    "rationale": "The current step assumes that there is no initial cost left after subtracting the planting cost, which is incorrect.",
-    "step": "With no initial cost left, Carlos can start earning money immediately. So, it takes 0 years to start earning money.",
-    "preceding": [
-      "The initial cost of planting the lemon tree is $90. This is the first year's cost, so we can subtract it from the total, leaving us with $90 - $90 = $0."
-    ],
-    "path_correct": false,
-    "audit_id": 11
-  },
-  {
-    "id": "gsm8k_test_49",
-    "cand": 3,
-    "step_idx": 1,
-    "judge": "VALID",
-    "rationale": "The current step correctly divides the total length of the wire (48 inches) by the length of each piece (6 inches), resulting in 8 pieces.",
-    "step": "Now we need to determine how many 6-inch pieces can be cut from the 48-inch piece of wire. We do this by dividing the total length of the wire by the length of each piece:\n48 inches / 6 inches/piece = 8 pieces",
-    "preceding": [
-      "Tracy used a piece of wire that was 4 feet long. She cut this wire into pieces that are 6 inches long. First, let's convert the length of the wire from feet to inches to make the calculation easier. There are 12 inches in a foot, so:\n4 feet * 12 inches/foot = 48 inches"
+      "A robe takes 2 bolts of blue fiber."
     ],
     "path_correct": true,
-    "audit_id": 12
-  },
-  {
-    "id": "gsm8k_test_49",
-    "cand": 4,
-    "step_idx": 2,
-    "judge": "VALID",
-    "rationale": "The current step correctly states the final answer based on the calculations provided in the preceding steps.",
-    "step": "The final answer is 8 pieces.",
-    "preceding": [
-      "Tracy used a piece of wire 4 feet long to support tomato plants in the garden. The wire was cut into pieces 6 inches long. We need to convert the length of the wire from feet to inches to match the length of the pieces. 1 foot = 12 inches, so 4 feet * 12 inches/foot = 48 inches.",
-      "The wire is cut into pieces 6 inches long. To find out how many pieces she obtained, we need to divide the total length of the wire by the length of each piece. 48 inches / 6 inches/piece = 8 pieces."
-    ],
-    "path_correct": true,
-    "audit_id": 13
-  },
-  {
-    "id": "gsm8k_test_46",
-    "cand": 1,
-    "step_idx": 0,
-    "judge": "VALID",
-    "rationale": "The current step is stating a fact that aligns with the problem statement, which mentions \"Last week, she wrote 5 articles on Monday.\" This step does not depend on any previous steps and is directly provided in the problem description.",
-    "step": "Meredith wrote 5 articles on Monday.",
-    "preceding": [],
-    "path_correct": false,
-    "audit_id": 14
-  },
-  {
-    "id": "gsm8k_test_39",
-    "cand": 4,
-    "step_idx": 5,
-    "judge": "VALID",
-    "rationale": "The current step is logically consistent with the information provided in the problem and the preceding steps.",
-    "step": "On the third day, he runs 1. 5 hours.",
-    "preceding": [
-      "John runs a total of 60 miles a week.",
-      "He runs 3 days a week.",
-      "He runs 3 hours on the first day.",
-      "On the other two days, he runs half as much as the first day.",
-      "So, on the second day, he runs 3/2 = 1. 5 hours."
-    ],
-    "path_correct": true,
-    "audit_id": 15
-  },
-  {
-    "id": "gsm8k_test_10",
-    "cand": 3,
-    "step_idx": 2,
-    "judge": "INVALID",
-    "rationale": "The calculation for overtime pay should use Eliza's overtime rate, which is 1.2 times her regular hourly rate.",
-    "step": "Calculate the overtime pay.\n5 hours * $10 * 1.2 = $60",
-    "preceding": [
-      "Calculate the earnings for the first 40 hours.\n40 hours * $10/hour = $400",
-      "Calculate the overtime hours.\n45 hours - 40 hours = 5 hours"
-    ],
-    "path_correct": true,
-    "audit_id": 16
-  },
-  {
-    "id": "gsm8k_test_08",
-    "cand": 1,
-    "step_idx": 1,
-    "judge": "VALID",
-    "rationale": "The calculation correctly uses the given download rate of 2 GB/minute to determine the time required to download 160 GB, which is 80% of the 200 GB file.",
-    "step": "Calculate the time it takes to download the first 80% of the file at 2 GB/minute.\n     160 GB / 2 GB/minute = 80 minutes",
-    "preceding": [
-      "To find the time it takes to download the first 80% of the file, we calculate 80% of 200 GB.\n     0.8 * 200 = 160 GB"
-    ],
-    "path_correct": false,
-    "audit_id": 17
-  },
-  {
-    "id": "gsm8k_test_09",
-    "cand": 1,
-    "step_idx": 4,
-    "judge": "INVALID",
-    "rationale": "The calculation of the total distance traveled includes distances that are not relevant to the final position relative to home.",
-    "step": "Calculate the total distance John has traveled.\nTotal Distance = 180 miles + 120 miles + 15 miles + 120 miles\nTotal Distance = 435 miles\n\nJohn is 435 miles from home at the end of those 4 hours.",
-    "preceding": [
-      "John drives for 3 hours at a speed of 60 mph.\nSpeed * Time = Distance\n60 mph * 3 hours = 180 miles",
-      "John spends the first 2 hours in standstill traffic.\nDistance = Speed * Time\n60 mph * 2 hours = 120 miles",
-      "John spends the next half-hour driving at a speed of 30 mph.\nDistance = Speed * Time\n30 mph * 0.5 hours = 15 miles",
-      "John spends the remaining time of the 4 hours driving at a speed of 80 mph.\nDistance = Speed * Time\n80 mph * 1.5 hours = 120 miles"
-    ],
-    "path_correct": false,
-    "audit_id": 18
-  },
-  {
-    "id": "gsm8k_test_21",
-    "cand": 3,
-    "step_idx": 0,
-    "judge": "INVALID",
-    "rationale": "The calculation \"1 * 10 = 10 liters\" is not logically valid in this context.",
-    "step": "Calculate the amount of water in the orange drink before the spill.\n1 * 10 = 10 liters",
-    "preceding": [],
-    "path_correct": false,
-    "audit_id": 19
-  },
-  {
-    "id": "gsm8k_test_29",
-    "cand": 3,
-    "step_idx": 2,
-    "judge": "INVALID",
-    "rationale": "The current step correctly identifies that Henry's second stop was 15 miles before the end of the trip, but the arithmetic calculation (20 + 15) + 20 = 55 miles is incorrect.",
-    "step": "His second stop was 15 miles before the end of the trip.\n(20 + 15) + 20 = 55 miles",
-    "preceding": [
-      "Henry made two stops during his 60-mile bike trip.",
-      "His first stop was after 20 miles."
-    ],
-    "path_correct": false,
-    "audit_id": 20
-  },
-  {
-    "id": "gsm8k_test_30",
-    "cand": 3,
-    "step_idx": 1,
-    "judge": "VALID",
-    "rationale": "This statement directly provides a specific value for one of the high heels, which is consistent with the information given in the problem.",
-    "step": "The cost of the first pair of high heels is $33.",
-    "preceding": [
-      "Let's denote the cost of the boots as B."
-    ],
-    "path_correct": true,
-    "audit_id": 21
-  },
-  {
-    "id": "gsm8k_test_34",
-    "cand": 1,
-    "step_idx": 7,
-    "judge": "INVALID",
-    "rationale": "The current step should be to solve for S, which is 80 / 2, but it is incorrectly written as S = 80 / 2 without performing the division.",
-    "step": "S = 80 / 2.",
-    "preceding": [
-      "Let G be the number of gold coins and S be the number of silver coins.",
-      "G = S + 30.",
-      "G + S = 110.",
-      "Substitute G from Step 2 into Step 3: (S + 30) + S = 110.",
-      "2S + 30 = 110.",
-      "2S = 110 - 30.",
-      "2S = 80."
-    ],
-    "path_correct": true,
-    "audit_id": 22
+    "audit_id": 5
   },
   {
     "id": "gsm8k_test_37",
@@ -343,89 +91,341 @@
       "Terry eats 2 yogurts a day.\n2 * 30 = 60"
     ],
     "path_correct": true,
-    "audit_id": 23
+    "audit_id": 6
   },
   {
-    "id": "gsm8k_test_48",
-    "cand": 1,
-    "step_idx": 4,
-    "judge": "INVALID",
-    "rationale": "The calculation assumes that the number of red ties is twice the number of blue ties and that each red tie costs $60, which is 50% more than the $40 cost of each blue tie.",
-    "step": "The total cost of the red ties is 2 * $60 = $120.",
-    "preceding": [
-      "John bought blue ties for $200 at $40 each.",
-      "John bought twice as many red ties as blue ties.",
-      "If the blue ties cost $40 each, then the red ties cost $60 each (50% more than blue ties).",
-      "The total cost of the blue ties is $200."
-    ],
-    "path_correct": false,
-    "audit_id": 24
-  },
-  {
-    "id": "gsm8k_test_21",
+    "id": "gsm8k_test_06",
     "cand": 0,
-    "step_idx": 4,
+    "step_idx": 2,
     "judge": "INVALID",
-    "rationale": "The current step incorrectly calculates the remaining water in the orange drink.",
-    "step": "Remaining water in orange drink = 20 - 1 = 19 liters",
+    "rationale": "The current step assumes that the cost of the glasses can be calculated by simply adding the cost of the first glass to the cost of the second glass twice, which is incorrect.",
+    "step": "The total cost for the glasses can be calculated by adding the cost of the first glass to the cost of the second glass twice (since there are 16 glasses total).",
     "preceding": [
-      "Initial amount of water in orange drink = 2 * 10 = 20 liters",
-      "Initial amount of water in pineapple drink = 3 * 15 = 45 liters",
-      "Spilled orange drink = 1 liter\nFinal amount of orange drink = 10 - 1 = 9 liters",
-      "Remaining volume of orange drink = 9 liters"
+      "Kylar buys 16 glasses, with the first glass costing $5 and every second glass costing 60% of $5.",
+      "The second glass costs 60% of $5, which is $5 * 0.60 = $3."
     ],
     "path_correct": false,
-    "audit_id": 25
+    "audit_id": 7
   },
   {
-    "id": "gsm8k_test_40",
-    "cand": 3,
+    "id": "gsm8k_test_12",
+    "cand": 0,
     "step_idx": 1,
-    "judge": "INVALID",
-    "rationale": "The current step incorrectly assumes that two-thirds of the time is spent walking without considering the time spent running.",
-    "step": "If she spends two-thirds of the time walking, then she spends 2/3 * 6 = 4 hours walking.",
+    "judge": "VALID",
+    "rationale": "The current step correctly calculates the total cost of the mini cupcakes by multiplying the quantity (2 dozen) by the cost per dozen ($80), resulting in $160.",
+    "step": "Calculate the total cost of mini cupcakes.\n2 dozen mini cupcakes * $80 per dozen = $160",
     "preceding": [
-      "Dana can skip at 3 miles per hour."
+      "Calculate the total cost of donuts.\n3 dozen donuts * $68 per dozen = $204"
     ],
-    "path_correct": false,
-    "audit_id": 26
+    "path_correct": true,
+    "audit_id": 8
   },
   {
-    "id": "gsm8k_test_37",
+    "id": "gsm8k_test_39",
+    "cand": 2,
+    "step_idx": 5,
+    "judge": "INVALID",
+    "rationale": "The total running time calculation does not follow logically from the problem statement or the preceding steps.",
+    "step": "Total running time is 3 + 2.5 + 2.5 = 8 hours.",
+    "preceding": [
+      "John runs 60 miles in 7 days.",
+      "John runs 30 miles in 3 days.",
+      "John runs 10 miles on the first day.",
+      "John runs 5 miles on the second day.",
+      "John runs 2.5 miles on the third day."
+    ],
+    "path_correct": false,
+    "audit_id": 9
+  },
+  {
+    "id": "gsm8k_test_49",
+    "cand": 2,
+    "step_idx": 3,
+    "judge": "VALID",
+    "rationale": "This step is a restatement of the initial condition given in the problem and does not involve any arithmetic or logical operations that would be invalid.",
+    "step": "The wire is cut into pieces 6 inches long.",
+    "preceding": [
+      "Tracy used a piece of wire 4 feet long, and the wire was cut into pieces 6 inches long.",
+      "To convert the length from feet to inches, we use the conversion factor 1 foot = 12 inches.",
+      "4 feet * 12 inches/foot = 48 inches."
+    ],
+    "path_correct": true,
+    "audit_id": 10
+  },
+  {
+    "id": "gsm8k_test_13",
     "cand": 1,
     "step_idx": 2,
     "judge": "VALID",
-    "rationale": "The current step correctly calculates that Terry needs 15 sets of 4 yogurts to get 60 yogurts (60 / 4 = 15).",
-    "step": "60 / 4 = 15\n15 * $5.00 = $75.00",
+    "rationale": "The statement \"The tree also requires $3 to water and feed it each year\" is a logical follow-up to the previous steps, which mentioned the initial planting cost and the cost of lemons.",
+    "step": "The tree also requires $3 to water and feed it each year.",
     "preceding": [
-      "Terry eats 2 yogurts a day.\n2 * 30 = 60 yogurts needed for 30 days",
-      "They are currently on sale at 4 yogurts for $5.00."
+      "Carlos spends $90 on planting the lemon tree.",
+      "Each year, the lemon tree grows 7 lemons at a cost of $1.5 each, so the total cost of the lemons is 7 * $1.5 = $10.5."
+    ],
+    "path_correct": false,
+    "audit_id": 11
+  },
+  {
+    "id": "gsm8k_test_36",
+    "cand": 3,
+    "step_idx": 3,
+    "judge": "VALID",
+    "rationale": "The current step correctly calculates the total score by summing the points scored in the first 20 minutes (4 points) and the points scored in the second 20 minutes (5 points), resulting in a total of 9 points.",
+    "step": "The total score is the sum of the points from both halves, which is 4 + 5 = 9 points.",
+    "preceding": [
+      "Mike scores 4 points in the first 20 minutes.",
+      "In the second 20 minutes, he scores 25% more points than in the first 20 minutes. To find the additional points, we calculate 25% of 4, which is (25/100) * 4 = 1 point.",
+      "Adding the additional points to the first 20 minutes score, the second 20 minutes score is 4 + 1 = 5 points."
+    ],
+    "path_correct": true,
+    "audit_id": 12
+  },
+  {
+    "id": "gsm8k_test_05",
+    "cand": 0,
+    "step_idx": 1,
+    "judge": "INVALID",
+    "rationale": "The current step is asking to calculate the total feed given in the afternoon, but the information provided in the problem already states that Wendi gives her chickens 25 cups of feed in the afternoon.",
+    "step": "Calculate the total feed given in the afternoon.\n25 cups of feed.",
+    "preceding": [
+      "Calculate the total feed given in the morning.\n15 cups of feed."
+    ],
+    "path_correct": false,
+    "audit_id": 13
+  },
+  {
+    "id": "gsm8k_test_38",
+    "cand": 1,
+    "step_idx": 1,
+    "judge": "VALID",
+    "rationale": "The current step involves calculating the total amount of money spent on video games, which is a logical next step after determining the total money earned from selling the Lego sets.",
+    "step": "Calculate total money spent on video games.\n8 * $20 = $160",
+    "preceding": [
+      "Calculate total money earned from selling Lego sets.\n13 * $15 = $195"
+    ],
+    "path_correct": false,
+    "audit_id": 14
+  },
+  {
+    "id": "gsm8k_test_39",
+    "cand": 1,
+    "step_idx": 4,
+    "judge": "VALID",
+    "rationale": "The current step logically follows from the information provided in the problem statement and the preceding steps.",
+    "step": "Let's calculate the total time he runs.",
+    "preceding": [
+      "John runs a total of 60 miles per week.",
+      "John runs 3 days a week.",
+      "He runs 3 hours on the first day.",
+      "On the other two days, he runs half as much time as the first day."
+    ],
+    "path_correct": true,
+    "audit_id": 15
+  },
+  {
+    "id": "gsm8k_test_13",
+    "cand": 4,
+    "step_idx": 1,
+    "judge": "VALID",
+    "rationale": "This step is valid because it calculates the annual cost of maintaining the tree, which is given directly in the problem statement as $3 per year.",
+    "step": "Calculate the annual cost of watering and feeding the tree.\nAnnual cost of watering and feeding = $3",
+    "preceding": [
+      "Calculate the initial cost of planting the lemon tree.\nCost of planting = $90"
+    ],
+    "path_correct": false,
+    "audit_id": 16
+  },
+  {
+    "id": "gsm8k_test_16",
+    "cand": 1,
+    "step_idx": 0,
+    "judge": "VALID",
+    "rationale": "This statement directly reflects the information provided in the problem statement, which specifies that the jewelry market will go up by 2.5%.",
+    "step": "The jewelry market will increase by 2.5%.",
+    "preceding": [],
+    "path_correct": false,
+    "audit_id": 17
+  },
+  {
+    "id": "gsm8k_test_22",
+    "cand": 2,
+    "step_idx": 2,
+    "judge": "INVALID",
+    "rationale": "The calculation for the son's age at birth is incorrect.",
+    "step": "Samantha is now 31 years old. Raymond is 25 years old. Raymond had a son at the age of 23, so the son's age at birth was 23 - 25 = -2.",
+    "preceding": [
+      "Samantha is now 31 years old. Raymond was born 6 years before Samantha, so Raymond is 31 - 6 = 25 years old.",
+      "Samantha is now 31 years old. Raymond is 25 years old. Raymond had a son at the age of 23, so the son's age at birth was 23 - 25 = -2."
+    ],
+    "path_correct": false,
+    "audit_id": 18
+  },
+  {
+    "id": "gsm8k_test_21",
+    "cand": 4,
+    "step_idx": 4,
+    "judge": "INVALID",
+    "rationale": "The current step assumes that the 6 liters of water from the remaining orange drink and the 9 liters of water from the pineapple drink are being added together, which is not logically derived from the previous steps.",
+    "step": "6 + 9 = 15 liters of water in total.",
+    "preceding": [
+      "1 liter of orange drink is spilled.",
+      "10 - 1 = 9 liters of orange drink left.",
+      "9 * 2/3 = 6 liters of water in the remaining orange drink.",
+      "15 * 3/5 = 9 liters of water in the pineapple drink."
+    ],
+    "path_correct": false,
+    "audit_id": 19
+  },
+  {
+    "id": "gsm8k_test_06",
+    "cand": 2,
+    "step_idx": 0,
+    "judge": "INVALID",
+    "rationale": "The current step does not follow logically from the problem statement.",
+    "step": "Kylar buys 16 glasses. Let's calculate the cost of the first glass: 1 * $5 = $5.",
+    "preceding": [],
+    "path_correct": false,
+    "audit_id": 20
+  },
+  {
+    "id": "gsm8k_test_25",
+    "cand": 4,
+    "step_idx": 4,
+    "judge": "INVALID",
+    "rationale": "The calculation provided in the current step is not shown, but based on the previous steps, the correct calculation should be \\( x = \\frac{19.50}{0.75} \\), which equals $26.00.",
+    "step": "Calculating the division: x = $26.00.",
+    "preceding": [
+      "Let the original price be x.",
+      "The book was sold with a 25% discount, so the price Kyle paid is 75% of the original price. This can be written as 0.75x.",
+      "We know that 0.75x = $19.50.",
+      "To find x, we need to divide both sides by 0.75: x = $19.50 / 0.75."
+    ],
+    "path_correct": true,
+    "audit_id": 21
+  },
+  {
+    "id": "gsm8k_test_37",
+    "cand": 0,
+    "step_idx": 1,
+    "judge": "VALID",
+    "rationale": "The current step logically follows from the problem statement and the preceding step.",
+    "step": "He eats 2 yogurts * 30 days = 60 yogurts in 30 days.",
+    "preceding": [
+      "Terry eats 2 yogurts a day."
+    ],
+    "path_correct": false,
+    "audit_id": 22
+  },
+  {
+    "id": "gsm8k_test_20",
+    "cand": 0,
+    "step_idx": 4,
+    "judge": "INVALID",
+    "rationale": "The current step incorrectly assumes that Marissa needs to walk at a speed of 4 mph to achieve an average speed of 4 mph over the entire 12 miles.",
+    "step": "To cover 6 miles in 1.5 hours, Marissa needs to walk at a speed of 6 miles / 1.5 hours = 4 mph.",
+    "preceding": [
+      "The total distance Marissa wants to cover is 12 miles. She has already walked 4 + 2 = 6 miles.",
+      "Marissa has 12 - 6 = 6 miles left to walk.",
+      "To find the required speed, we need to calculate the time required to walk 6 miles at 4 mph.",
+      "Time = Distance / Speed = 6 miles / 4 mph = 1.5 hours."
+    ],
+    "path_correct": false,
+    "audit_id": 23
+  },
+  {
+    "id": "gsm8k_test_01",
+    "cand": 4,
+    "step_idx": 5,
+    "judge": "VALID",
+    "rationale": "The current step logically follows from the previous steps, where it was established that Janet has 9 eggs left after eating 3 for breakfast and using 4 for baking muffins.",
+    "step": "Janet sells the remaining eggs at the farmers' market for $2 per egg.",
+    "preceding": [
+      "Janet's ducks lay 16 eggs per day.",
+      "Janet eats 3 eggs for breakfast every morning.",
+      "After breakfast, she has 16 - 3 = 13 eggs left.",
+      "She bakes muffins for her friends with 4 eggs.",
+      "After baking muffins, Janet has 13 - 4 = 9 eggs left."
+    ],
+    "path_correct": true,
+    "audit_id": 24
+  },
+  {
+    "id": "gsm8k_test_14",
+    "cand": 1,
+    "step_idx": 3,
+    "judge": "INVALID",
+    "rationale": "The current step incorrectly calculates the remaining vacuum cleaners after selling half of the remaining ones at the orange house.",
+    "step": "She sold half of the remaining vacuum cleaners at the orange house. So, \\( \\frac{2x - 6}{3} - \\frac{1}{2} \\left( \\frac{2x - 6}{3} \\right) = \\frac{2x - 6}{6} \\) vacuum cleaners are left.",
+    "preceding": [
+      "Let the total number of vacuum cleaners Melanie started with be \\( x \\).",
+      "She sold \\( \\frac{x}{3} \\) vacuum cleaners at the green house. So, \\( x - \\frac{x}{3} = \\frac{2x}{3} \\) vacuum cleaners are left.",
+      "She sold 2 more vacuum cleaners at the red house. So, \\( \\frac{2x}{3} - 2 = \\frac{2x - 6}{3} \\) vacuum cleaners are left."
+    ],
+    "path_correct": true,
+    "audit_id": 25
+  },
+  {
+    "id": "gsm8k_test_38",
+    "cand": 2,
+    "step_idx": 3,
+    "judge": "INVALID",
+    "rationale": "The current step incorrectly assumes that the $30 spent was on lego sets, which contradicts the initial information that John had 13 lego sets to begin with.",
+    "step": "Since he spent $30 on the lego sets, he must have started with $30 / $15 = 2 lego sets.",
+    "preceding": [
+      "John sells 13 lego sets for $15 each, so he makes $15 * 13 = $195.",
+      "He spends $20 * 8 = $160 on video games.",
+      "He has $5 left after buying the video games, so he spent $195 - $160 - $5 = $30 on lego sets."
+    ],
+    "path_correct": true,
+    "audit_id": 26
+  },
+  {
+    "id": "gsm8k_test_34",
+    "cand": 1,
+    "step_idx": 10,
+    "judge": "INVALID",
+    "rationale": "The current step suggests that G = 70, but this value was not derived from the previous steps.",
+    "step": "G = 70.",
+    "preceding": [
+      "Let G be the number of gold coins and S be the number of silver coins.",
+      "G = S + 30.",
+      "G + S = 110.",
+      "Substitute G from Step 2 into Step 3: (S + 30) + S = 110.",
+      "2S + 30 = 110.",
+      "2S = 110 - 30.",
+      "2S = 80.",
+      "S = 80 / 2.",
+      "S = 40.",
+      "Substitute S into Step 2: G = 40 + 30."
     ],
     "path_correct": true,
     "audit_id": 27
   },
   {
-    "id": "gsm8k_test_11",
-    "cand": 0,
-    "step_idx": 0,
+    "id": "gsm8k_test_05",
+    "cand": 4,
+    "step_idx": 1,
     "judge": "VALID",
-    "rationale": "This statement directly corresponds to the information provided in the problem statement, which indicates that the program had 60 downloads in the first month.",
-    "step": "The program had 60 downloads in the first month.",
-    "preceding": [],
+    "rationale": "The current step correctly calculates the average amount of feed given to each chicken per day by dividing the total amount of feed (40 cups) by the number of chickens (20).",
+    "step": "Calculate the total amount of feed given to one chicken in a day.\n   40 cups / 20 chickens = 2 cups per chicken per day",
+    "preceding": [
+      "Determine the total amount of feed given to all chickens in the morning and afternoon.\n   15 cups (morning) + 25 cups (afternoon) = 40 cups in total"
+    ],
     "path_correct": false,
     "audit_id": 28
   },
   {
-    "id": "gsm8k_test_16",
-    "cand": 2,
+    "id": "gsm8k_test_20",
+    "cand": 3,
     "step_idx": 3,
-    "judge": "VALID",
-    "rationale": "The calculation for the value of electronic gadgets after a 1.2% increase is logically consistent with the problem statement and the preceding steps.",
-    "step": "The value of electronic gadgets increases by 1.2%, so it will be $8,000 + 1.2% * $8,000 = $8,000 * 1.012 = $8,096.",
+    "judge": "INVALID",
+    "rationale": "The calculation assumes that Marissa has only 1 hour left to complete the remaining 8 miles, which is incorrect based on the problem statement.",
+    "step": "Calculate the required speed.\nDistance / Time = 8 miles / 1 hour = 8 miles per hour",
     "preceding": [
-      "The value of jewelry is $5,000.",
-      "The value of electronic gadgets is $8,000.",
-      "The value of jewelry increases by 2.5%, so it will be $5,000 + 2.5% * $5,000 = $5,000 * 1.025 = $5,125."
+      "Calculate the distance Marissa has already walked.\n1 * 4 = 4 miles",
+      "Calculate the remaining distance to the finish line.\n12 - 4 = 8 miles",
+      "Calculate the time Marissa has left to walk the remaining distance.\n1 hour"
     ],
     "path_correct": false,
     "audit_id": 29
